@@ -17,11 +17,24 @@ namespace Kwizer\PdfBundle\Component;
 interface PdfBuilderInterface
 {
 	/**
+	 * Return the pdf
+	 * @return PdfInterface
+	 */
+	public function getPdf();
+	
+	/**
 	 * Select a style of the stylesheet for the next print
 	 * @param string $name
 	 * @return self
 	 */
 	public function setStyle($name);
+	
+	/**
+	 * Select a style of the stylesheet for the next print
+	 * @param string $name
+	 * @return self
+	 */
+	public function setStylesheet(StylesheetInterface $stylesheet);
 	
 	/**
 	 * Print a text
