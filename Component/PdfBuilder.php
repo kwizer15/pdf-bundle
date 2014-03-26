@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the bundle package.
+ * This file is part of the Kwizer\Pdf bundle package.
  *
  * (c) Emmanuel Bernaszuk <emmanuel.bernaszuk@kw12er.com>
  *
