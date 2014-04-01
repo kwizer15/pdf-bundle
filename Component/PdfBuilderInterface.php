@@ -18,7 +18,7 @@ interface PdfBuilderInterface
 {
 	/**
 	 * Return the pdf
-	 * @return PdfInterface
+	 * @return string
 	 */
 	public function getPdf();
 	

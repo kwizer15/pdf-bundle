@@ -16,13 +16,24 @@ namespace Kwizer\PdfBundle\Component;
  */
 interface StylesheetInterface
 {
+	const STYLE_PARAMS = array(
+			'font',
+			'font-size',
+			'color',
+			'weight',
+			'text-style',
+			'background-color',
+			'border-color',
+			'border',
+	);
+	
 	/**
 	 * Add a style
 	 * @param string $name
 	 * @param StyleInterface $params
 	 * @return self
 	 */
-	public function add($name, StyleInterface $style);
+	public function add($name, array $style);
 	
 	/**
 	 * Get a style
