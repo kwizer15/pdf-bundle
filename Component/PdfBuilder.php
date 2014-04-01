@@ -14,11 +14,11 @@ namespace Kwizer\PdfBundle\Component;
 /**
  * @author Emmanuel Bernaszuk <emmanuel.bernaszuk@kw12er.com>
  */
-class PdfBuilder implements PdfBuilderInterface
+class FPdfBuilder implements PdfBuilderInterface
 {
 	/**
 	 * The PDF on build
-	 * @var PDFInterface $pdf
+	 * @var FPDFBridge $pdf
 	 */
 	private $pdf;
 	
@@ -43,19 +43,28 @@ class PdfBuilder implements PdfBuilderInterface
 	}
 	
 	/**
-	 * {@inheritdoc}
+	 * Constructor
+	 * 
 	 */
-	public function setStyle($name)
+	public function __construct(StylesheetInterface $stylesheet)
 	{
-		if ($this->stylesheet === null)
+		$this->setStylesheet($stylesheet);
+		$this->_setStyle('default');
+	}
+	
+	/**
+	 * 
+	 * @param unknown $name
+	 * @throws \Exception
+	 * @return \Kwizer\PdfBundle\Component\PdfBuilder
+	 */
+	protected function _setStyle($name)
+	{
+		$this->style = $name;
+		if ($this->getStylesheet()->get($name) === null)
 		{
-			throw new \Exception('Stylesheet is not defined');
+			$this->style = 'default';
 		}
-		if (!in_array($this->stylesheet->getNames()))
-		{
-			throw new \Exception('Style does not exist in the stylesheet');
-		}
-		$this->style = $style;
 		
 		return $this;
 	}
@@ -67,7 +76,8 @@ class PdfBuilder implements PdfBuilderInterface
 	
 	public function printText($text)
 	{
-		
+		$this->_setStyle($style);
+		$this->pdf->cell(0,0,$text);
 	}
 
 	public function setX($x)
