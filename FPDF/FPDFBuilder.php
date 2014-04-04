@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Kwizer\PdfBundle\Component;
+namespace Kwizer\PdfBundle\FPDF;
 
 use Kwizer\PdfBundle\Core\PdfBuilderInterface;
 /**
