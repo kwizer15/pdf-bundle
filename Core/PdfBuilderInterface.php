@@ -25,16 +25,10 @@ interface PdfBuilderInterface
 	/**
 	 * Select a style of the stylesheet for the next print
 	 * @param string $name
+	 * @param array options
 	 * @return self
 	 */
-	public function setStyle($name);
-	
-	/**
-	 * Select a style of the stylesheet for the next print
-	 * @param string $name
-	 * @return self
-	 */
-	public function setStylesheet(StylesheetInterface $stylesheet);
+	public function addStyle($name, $options = array());
 	
 	/**
 	 * Set X position

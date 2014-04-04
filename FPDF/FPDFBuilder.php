@@ -11,7 +11,9 @@
 
 namespace Kwizer\PdfBundle\FPDF;
 
+use Kwizer\PdfBundle\Core\PdfInterface;
 use Kwizer\PdfBundle\Core\PdfBuilderInterface;
+
 /**
  * @author Emmanuel Bernaszuk <emmanuel.bernaszuk@kw12er.com>
  */
@@ -45,7 +47,7 @@ class FPDFBuilder implements PdfBuilderInterface
 	{
 		$this->pdf = $pdf;
 		$this->addStyle('default');
-		$this->_setStyle('default');
+		$this->_selectStyle('default');
 	}
 	
 	/**
@@ -205,7 +207,7 @@ class FPDFBuilder implements PdfBuilderInterface
 	 */
 	public function getX()
 	{
-		return $this->pdf->getX();
+		return $this->pdf->GetX();
 	}
 	
 	/**
@@ -214,7 +216,7 @@ class FPDFBuilder implements PdfBuilderInterface
 	 */
 	public function getY()
 	{
-		return $this->pdf->getY();
+		return $this->pdf->GetY();
 	}
 	
 	/**

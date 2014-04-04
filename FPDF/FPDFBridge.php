@@ -11,13 +11,13 @@
 
 namespace Kwizer\PdfBundle\FPDF;
 
+use fpdf\FPDF as FPDF;
 use Kwizer\PdfBundle\Core\PdfInterface;
-use Kwizer\PdfBundle\Core\PdfBuilderInterface;
-use Kwizer\PdfBundle\Core\DocumentInterface;
+use Kwizer\PdfBundle\Core\PdfDocumentInterface;
 /**
  * @author Emmanuel Bernaszuk <emmanuel.bernaszuk@kw12er.com>
  */
-class FPDFBridge extends \FPDF implements PdfInterface
+class FPDFBridge extends FPDF implements PdfInterface
 {
 	/**
 	 * The Document to build
@@ -29,7 +29,7 @@ class FPDFBridge extends \FPDF implements PdfInterface
 	 * Constructor
 	 * @param PDFBuilderInterface $builder
 	 */
-	public function __construct(DocumentInterface $document)
+	public function __construct(PdfDocumentInterface $document)
 	{
 		$this->setDocument($document);
 		parent::__construct();
@@ -40,7 +40,7 @@ class FPDFBridge extends \FPDF implements PdfInterface
 	 * @param PdfBuilderInterface $builder
 	 * @return \Kwizer\PdfBundle\Bridge\FPDFBridge
 	 */
-	public function setDocument(DocumentInterface $builder)
+	public function setDocument(PdfDocumentInterface $builder)
 	{
 		$this->document = $document;
 		
