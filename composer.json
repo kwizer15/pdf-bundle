@@ -1,0 +1,29 @@
+{
+    "name": "kwizer15/pdf-bundle",
+    "type": "symfony-bundle",
+    "description": "PDF library for Symfony2",
+    "keywords": ["pdf"],
+    "license": "GPLv2",
+    "authors": [
+        {
+            "name": "Emmanuel Bernaszuk",
+            "email": "emmanuel.bernaszuk@kw12er.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.3.2",
+        "symfony/framework-bundle": "~2.3"
+    },
+    "autoload": {
+        "psr-0": {
+            "Kwizer\\PdfBundle": ""
+        }
+    },
+    "target-dir": "Kwizer/PdfBundle",
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.9-dev"
+        }
+    }
+}
