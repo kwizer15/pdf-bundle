@@ -16,17 +16,15 @@ namespace Kwizer\PdfBundle\Component;
  */
 interface DocumentInterface
 {
-	/**
-	 * 
-	 * @param PdfBuilderInterface $builder
-	 */
-	public function buildPageHeader(PdfBuilderInterface $builder);
+	public function buildHeader();
 	
-	public function buildPageFooter(PdfBuilderInterface $builder);
+	public function buildFooter();
 	
-	public function setDocumentHead(DocumentHeaderInterface $header);
+	public function buildAcceptPageBreak();
 	
-	public function setStylesheet(StylesheetInterface $stylesheet);
+	public function setDefaultStylesheet();
 	
-	public function buildContent(PdfBuilderInterface $builder);
+	public function buildContent();
+	
+	public function setBuilder(PdfBuilderInterface $builder);
 }

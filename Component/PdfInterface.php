@@ -16,10 +16,5 @@ namespace Kwizer\PdfBundle\Component;
  */
 interface PdfInterface
 {
-	/**
-	 * Get the output
-	 * 
-	 * @return string
-	 */
-	public function output();
+
 }

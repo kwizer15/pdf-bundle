@@ -13,24 +13,25 @@ namespace Kwizer\PdfBundle\Bridge;
 
 use Kwizer\PdfBundle\Component\PdfInterface;
 use Kwizer\PdfBundle\Component\PdfBuilderInterface;
+use Kwizer\PdfBundle\Component\DocumentInterface;
 /**
  * @author Emmanuel Bernaszuk <emmanuel.bernaszuk@kw12er.com>
  */
-class FPDFBridge extends \FPDF
+class FPDFBridge extends \FPDF implements PdfInterface
 {
 	/**
-	 * The PDF builder
-	 * @var PdfBuilderInterface
+	 * The Document to build
+	 * @var DocumentInterface
 	 */
-	private $builder;
+	private $document;
 	
 	/**
 	 * Constructor
 	 * @param PDFBuilderInterface $builder
 	 */
-	public function __construct(PDFBuilderInterface $builder)
+	public function __construct(DocumentInterface $document)
 	{
-		$this->setBuilder($builder);
+		$this->setDocument($document);
 		parent::__construct();
 	}
 	
@@ -39,9 +40,9 @@ class FPDFBridge extends \FPDF
 	 * @param PdfBuilderInterface $builder
 	 * @return \Kwizer\PdfBundle\Bridge\FPDFBridge
 	 */
-	public function setBuilder(PdfBuilderInterface $builder)
+	public function setDocument(DocumentInterface $builder)
 	{
-		$this->builder = $builder;
+		$this->document = $document;
 		
 		return $this;
 	}
@@ -51,7 +52,7 @@ class FPDFBridge extends \FPDF
 	 */
 	public function Header()
 	{
-		$this->builder->buildPageHeader();
+		$this->document->buildHeader();
 		
 		return $this;
 	}
@@ -61,8 +62,18 @@ class FPDFBridge extends \FPDF
 	 */
 	public function Footer()
 	{
-		$this->builder->buildPageFooter();
+		$this->document->buildFooter();
 	
+		return $this;
+	}
+	
+	/**
+	 * {@inheritdoc}
+	 */
+	public function AcceptPageBreak()
+	{
+		$this->document->buildAcceptPageBreak();
+		
 		return $this;
 	}
 }
