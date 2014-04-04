@@ -24,12 +24,6 @@ class FPDFBuilder implements PdfBuilderInterface
 	private $pdf;
 	
 	/**
-	 * The stylesheet
-	 * @var Stylesheet $stylesheet
-	 */
-	private $stylesheet;
-	
-	/**
 	 * Name of curent style
 	 * @var array
 	 */
@@ -47,10 +41,9 @@ class FPDFBuilder implements PdfBuilderInterface
 	 * Constructor
 	 * 
 	 */
-	public function __construct(StylesheetInterface $stylesheet)
+	public function __construct(PdfInterface $pdf)
 	{
-		$this->pdf = new FPDFBridge($this);
-		$this->setStylesheet($stylesheet);
+		$this->pdf = $pdf;
 		$this->addStyle('default');
 		$this->_setStyle('default');
 	}

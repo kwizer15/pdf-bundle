@@ -14,8 +14,8 @@ namespace Kwizer\PdfBundle\Component;
 /**
  * @author Emmanuel Bernaszuk <emmanuel.bernaszuk@kw12er.com>
  */
-interface DocumentInterface
-{
+interface PdfDocumentInterface
+{	
 	public function buildHeader();
 	
 	public function buildFooter();
@@ -27,4 +27,6 @@ interface DocumentInterface
 	public function buildContent();
 	
 	public function setBuilder(PdfBuilderInterface $builder);
+	
+	public function getBuilder();
 }

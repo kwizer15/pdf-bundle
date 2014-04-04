@@ -14,7 +14,7 @@ namespace Kwizer\PdfBundle\Component;
 /**
  * @author Emmanuel Bernaszuk <emmanuel.bernaszuk@kw12er.com>
  */
-interface StyleInterface
+interface PdfStyleInterface
 {
 	public function getDivWidth();
 	
