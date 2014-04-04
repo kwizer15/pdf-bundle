@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the Kwizer\Pdf bundle package.
+ * This file is part of the KwizerPdfBundle package.
  *
  * (c) Emmanuel Bernaszuk <emmanuel.bernaszuk@kw12er.com>
  *
@@ -11,7 +11,7 @@
 
 namespace Kwizer\PdfBundle\Component;
 
-use Kwizer\PdfBundle\Bridge\FPDFBridge;
+use Kwizer\PdfBundle\Core\PdfBuilderInterface;
 /**
  * @author Emmanuel Bernaszuk <emmanuel.bernaszuk@kw12er.com>
  */

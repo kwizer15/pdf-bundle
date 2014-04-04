@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the Kwizer\Pdf bundle package.
+ * This file is part of the KwizerPdfBundle package.
 *
 * (c) Emmanuel Bernaszuk <emmanuel.bernaszuk@kw12er.com>
 *
@@ -9,12 +9,14 @@
 * file that was distributed with this source code.
 */
 
-namespace Kwizer\PdfBundle\Component;
+namespace Kwizer\PdfBundle\FPDF;
+
+use Kwizer\PdfBundle\Core\PdfStyleInterface;
 
 /**
  * @author Emmanuel Bernaszuk <emmanuel.bernaszuk@kw12er.com>
  */
-class FPDFStyle implements StyleInterface
+class FPDFStyle implements PdfStyleInterface
 {
 	public function __construct($options = array())
 	{
