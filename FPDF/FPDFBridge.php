@@ -40,7 +40,7 @@ class FPDFBridge extends FPDF implements PdfInterface
 	 * @param PdfBuilderInterface $builder
 	 * @return \Kwizer\PdfBundle\Bridge\FPDFBridge
 	 */
-	public function setDocument(PdfDocumentInterface $builder)
+	public function setDocument(PdfDocumentInterface $document)
 	{
 		$this->document = $document;
 		
