@@ -11,7 +11,6 @@
 
 namespace Kwizer\PdfBundle\Tests\FPDF;
 
-use Kwizer\PdfBundle\FPDF\FPDFBridge;
 use Kwizer\PdfBundle\FPDF\FPDFBuilder;
 
 /**
