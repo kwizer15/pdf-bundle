@@ -31,6 +31,11 @@ class FPDFBuilderTest extends \PHPUnit_Framework_TestCase
 		$this->builder = new FPDFBuilder($this->fpdf);
 	}
 	
+	public function assertPreConditions()
+	{
+		$this->assertInstanceOf('Kwizer\PdfBundle\Core\PdfBuilderInterface', $this->builder);
+	}
+	
 	public function testAddFont()
 	{
 		$this->fpdf->expects($this->once())->method('AddFont');
@@ -129,111 +134,133 @@ class FPDFBuilderTest extends \PHPUnit_Framework_TestCase
 	
 	public function testPageNo()
 	{
-	
+		$this->fpdf->expects($this->once())->method('PageNo');
+		$this->builder->pageNo();
 	}
 	
 	public function testRect()
 	{
-	
+		$this->fpdf->expects($this->once())->method('Rect');
+		$this->builder->rect(0,0,1,1);
 	}
 	
 	public function testSetAuthor()
 	{
-	
+		$this->fpdf->expects($this->once())->method('SetAuthor');
+		$this->builder->setAuthor('foo');
 	}
 	
 	public function testSetAutoPageBreak()
 	{
-	
+		$this->fpdf->expects($this->once())->method('SetAutoPageBreak');
+		$this->builder->setAutoPageBreak(true);
 	}
 	
 	public function testSetCompression()
 	{
-	
+		$this->fpdf->expects($this->once())->method('SetCompression');
+		$this->builder->setCompression(false);
 	}
 	
 	public function testSetCreator()
 	{
-	
+		$this->fpdf->expects($this->once())->method('SetCreator');
+		$this->builder->setCreator('foo');
 	}
 	
 	public function testSetDisplayMode()
 	{
-	
+		$this->fpdf->expects($this->once())->method('SetDisplayMode');
+		$this->builder->setDisplayMode(1);
 	}
 	
 	public function testSetDrawColor()
 	{
-	
+		$this->fpdf->expects($this->once())->method('SetDrawColor');
+		$this->builder->setDrawColor(0);
 	}
 	
 	public function testSetFillColor()
 	{
-	
+		$this->fpdf->expects($this->once())->method('SetFillColor');
+		$this->builder->setFillColor(0);
 	}
 	
 	public function testSetKeywords()
 	{
-	
+		$this->fpdf->expects($this->once())->method('SetKeywords');
+		$this->builder->setKeywords('foo');
 	}
 	
 	public function testSetLeftMargin()
 	{
-	
+		$this->fpdf->expects($this->once())->method('SetLeftMargin');
+		$this->builder->setLeftMargin(1);
 	}
 	
 	public function testSetLink()
 	{
-	
+		$this->fpdf->expects($this->once())->method('SetLink');
+		$this->builder->setLink(1,1.5,-1);
 	}
 	
 	public function testSetMargins()
 	{
-	
+		$this->fpdf->expects($this->once())->method('SetMargins');
+		$this->builder->setMargins(1,1);
 	}
 	
 	public function testSetRightMargin()
 	{
-	
+		$this->fpdf->expects($this->once())->method('SetRightMargin');
+		$this->builder->setRightMargin(1);
 	}
 	
 	public function testSetSubject()
 	{
-	
+		$this->fpdf->expects($this->once())->method('SetSubject');
+		$this->builder->setSubject('foo');
 	}
 	
 	public function testSetTitle()
 	{
-	
+		$this->fpdf->expects($this->once())->method('SetTitle');
+		$this->builder->setTitle('foo');
 	}
 	
 	public function testSetTopMargin()
 	{
-	
+		$this->fpdf->expects($this->once())->method('SetTopMargin');
+		$this->builder->setTopMargin(1);
 	}
 	
 	public function testSetX()
 	{
-	
+		$this->fpdf->expects($this->once())->method('SetX');
+		$this->builder->setX(1);
 	}
 	
 	public function testSetY()
 	{
-	
+		$this->fpdf->expects($this->once())->method('SetY');
+		$this->builder->setY(1);
 	}
 	
 	public function testSetXY()
 	{
-	
+		$this->fpdf->expects($this->once())->method('SetXY');
+		$this->builder->setXY(1,1);
 	}
 	
 	public function testText()
 	{
-	
+		$this->fpdf->expects($this->once())->method('Text');
+		$this->builder->text(1,1,'foo');
 	}
 	
 	public function testWrite()
 	{
-	
+		$this->fpdf->expects($this->once())->method('Write');
+		$this->builder->write('foo');
 	}
 }
