@@ -35,6 +35,12 @@ class FPDFBuilderTest extends \PHPUnit_Framework_TestCase
 		$this->assertInstanceOf('Kwizer\PdfBundle\Core\PdfBuilderInterface', $this->builder);
 	}
 	
+	public function testGetPdf()
+	{
+//		$this->builder->write('foo');
+//		$this->assertInternalType('string', $this->builder->getPdf());
+	}
+	
 	public function testAddFont()
 	{
 		$this->fpdf->expects($this->once())->method('AddFont');
