@@ -29,7 +29,10 @@ abstract class AbstractPdfDocument implements PdfDocumentInterface
 	/**
 	 * {@inheritdoc}
 	 */
-	public function buildAcceptPageBreak() { return true; }
+	public function buildAcceptPageBreak()
+	{
+		return true;
+	}
 	
 	/**
 	 * {@inheritdoc}
@@ -47,6 +50,8 @@ abstract class AbstractPdfDocument implements PdfDocumentInterface
 	public function setBuilder(PdfBuilderInterface $builder)
 	{
 		$this->builder = $builder;
+		
+		return $this;
 	}
 	
 	/**
