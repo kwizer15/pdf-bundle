@@ -37,8 +37,8 @@ class FPDFBuilderTest extends \PHPUnit_Framework_TestCase
 	
 	public function testGetPdf()
 	{
-//		$this->builder->write('foo');
-//		$this->assertInternalType('string', $this->builder->getPdf());
+		$this->fpdf->expects($this->once())->method('Output');
+		$this->builder->getPdf();
 	}
 	
 	public function testAddFont()
