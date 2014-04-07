@@ -17,36 +17,32 @@ namespace Kwizer\PdfBundle\Core;
 abstract class AbstractPdfDocument implements PdfDocumentInterface
 {	
 	/**
-	 * Format the header
+	 * {@inheritdoc}
 	 */
 	public function buildHeader() {}
 	
 	/**
-	 * Format the footer
+	 * {@inheritdoc}
 	 */
 	public function buildFooter() {}
 	
 	/**
-	 * Logic from accept page document
-	 * @return boolean
+	 * {@inheritdoc}
 	 */
 	public function buildAcceptPageBreak() { return true; }
 	
 	/**
-	 * Set the stylesheet
-	 * @return array
+	 * {@inheritdoc}
 	 */
 	public function setDefaultStylesheet() {}
 	
 	/**
-	 * Format the content (main function)
+	 * {@inheritdoc}
 	 */
 	public function buildContent() {}
 	
 	/**
-	 * Set the builder
-	 * @param PdfBuilderInterface $builder
-	 * @return self
+	 * {@inheritdoc}
 	 */
 	public function setBuilder(PdfBuilderInterface $builder)
 	{
@@ -54,8 +50,7 @@ abstract class AbstractPdfDocument implements PdfDocumentInterface
 	}
 	
 	/**
-	 * Get the builder
-	 * @return PdfBuilderInterface
+	 * {@inheritdoc}
 	 */
 	public function getBuilder()
 	{

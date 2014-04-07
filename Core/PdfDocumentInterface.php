@@ -16,17 +16,43 @@ namespace Kwizer\PdfBundle\Core;
  */
 interface PdfDocumentInterface
 {	
+	/**
+	 * Format the header
+	 */
 	public function buildHeader();
 	
+	/**
+	 * Format the footer
+	 */
 	public function buildFooter();
 	
+	/**
+	 * Logic from accept page document
+	 * @return boolean
+	 */
 	public function buildAcceptPageBreak();
 	
+	/**
+	 * Set the stylesheet
+	 * @return array
+	 */
 	public function setDefaultStylesheet();
 	
+	/**
+	 * Format the content (main function)
+	 */
 	public function buildContent();
 	
+	/**
+	 * Set the builder
+	 * @param PdfBuilderInterface $builder
+	 * @return self
+	 */
 	public function setBuilder(PdfBuilderInterface $builder);
 	
+	/**
+	 * Get the builder
+	 * @return PdfBuilderInterface
+	 */
 	public function getBuilder();
 }
