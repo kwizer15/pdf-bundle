@@ -14,7 +14,7 @@ namespace Kwizer\PdfBundle\Tests\Core;
 /**
  * @author Emmanuel Bernaszuk <emmanuel.bernaszuk@kw12er.com>
  */
-class PdfFactoryTest implements \PHPUnit_Framework_TestCase
+class PdfFactoryTest extends \PHPUnit_Framework_TestCase
 {
 	public function testTrue()
 	{
