@@ -16,21 +16,36 @@ namespace Kwizer\PdfBundle\Core;
  */
 class PdfFactory implements PdfFactoryInterface
 {
-	/**
-	 * {@inheritdoc}
-	 */
-	public function createPdf(DocumentInterface $document)
+	private $builderClass;
+	
+	private $bridgeClass;
+	
+	public function __construct($library)
 	{
-		$this->createPdfBuilder($document)->getPdf();
+		switch ($library)
+		{
+			default:
+				$this->builderClass = '\Kwizer\PdfBundle\FPDF\FPDFBuilder';
+				$this->bridgeClass = '\Kwizer\PdfBundle\FPDF\FPDFBridge';
+		}
 	}
 	
 	/**
 	 * {@inheritdoc}
 	 */
-	public function createPdfBuilder(DocumentInterface $document)
+	public function createPdf(PdfDocumentInterface $document)
 	{
-		$builder = new PdfBuilder;
-		$document->buildPdf($builder);
+		return $this->createPdfBuilder($document)->getPdf();
+	}
+	
+	/**
+	 * {@inheritdoc}
+	 */
+	public function createPdfBuilder(PdfDocumentInterface $document)
+	{
+		$builder = new $this->builderClass(new $this->bridgeClass($document));
+		$document->setBuilder($builder);
+		$document->buildContent();
 		
 		return $builder;
 	}
