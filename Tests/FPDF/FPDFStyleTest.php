@@ -18,8 +18,51 @@ use Kwizer\PdfBundle\FPDF\FPDFStyle;
  */
 class FPDFStyleTest extends \PHPUnit_Framework_TestCase
 {
-	public function testTrue()
+	private $style;
+	
+	public function setUp()
 	{
-		$this->markTestIncomplete('Ce test n\'a pas encore été implémenté.');
+		$this->style = new FPDFStyle();
 	}
+	
+	public function assertPreConditions()
+	{
+		$this->assertInstanceOf('Kwizer\PdfBundle\Core\PdfStyleInterface', $this->style);
+	}
+	
+	public function dataHexDec()
+	{
+		return array(
+				array('526312',array(82,99,18)),
+		);
+	} 
+	
+	/**
+	 * @dataProvider dataHexDec
+	 */
+	public function testGetTextColorRGB($hex, $dec)
+	{
+		$this->style->setOptionsFromArray(array('text-color'=>$hex));
+		$this->assertSame($dec, $this->style->getTextColorRGB());
+	}
+	
+
+	/**
+	 * @dataProvider dataHexDec
+	 */
+	public function testGetBorderColorRGB($hex, $dec)
+	{
+		$this->style->setOptionsFromArray(array('border-color'=>$hex));
+		$this->assertSame($dec, $this->style->getBorderColorRGB());
+	}
+	
+	/**
+	 * @dataProvider dataHexDec
+	 */
+	public function testGetBackgroundColorRGB($hex, $dec)
+	{
+		$this->style->setOptionsFromArray(array('background-color'=>$hex));
+		$this->assertSame($dec, $this->style->getBackgroundColorRGB());
+	}
+
 }
