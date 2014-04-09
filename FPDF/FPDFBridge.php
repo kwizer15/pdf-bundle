@@ -26,6 +26,12 @@ class FPDFBridge extends FPDF implements PdfInterface
 	private $document;
 	
 	/**
+	 * Info producer
+	 * @var string
+	 */
+	private $producer = 'FPDF KwizerPdfBundle';
+	
+	/**
 	 * Constructor
 	 * @param PDFBuilderInterface $builder
 	 */
@@ -75,5 +81,24 @@ class FPDFBridge extends FPDF implements PdfInterface
 		$this->document->buildAcceptPageBreak();
 		
 		return $this;
+	}
+	
+	/**
+	 * {@inheritdoc}
+	 */
+	public function _putinfo()
+	{
+		$this->_out('/Producer '.$this->_textstring($this->producer));
+		if(!empty($this->title))
+			$this->_out('/Title '.$this->_textstring($this->title));
+		if(!empty($this->subject))
+			$this->_out('/Subject '.$this->_textstring($this->subject));
+		if(!empty($this->author))
+			$this->_out('/Author '.$this->_textstring($this->author));
+		if(!empty($this->keywords))
+			$this->_out('/Keywords '.$this->_textstring($this->keywords));
+		if(!empty($this->creator))
+			$this->_out('/Creator '.$this->_textstring($this->creator));
+		$this->_out('/CreationDate '.$this->_textstring('D:'.@date('YmdHis')));
 	}
 }
