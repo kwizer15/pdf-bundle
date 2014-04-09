@@ -21,12 +21,12 @@ interface PdfFactoryInterface
 	 * @param DocumentInterface $document
 	 * @return PdfInterface
 	 */
-	public function createPdf(DocumentInterface $document);
+	public function createPdf(PdfDocumentInterface $document);
 	
 	/**
 	 * Create a PdfBuilderInterface since a document model
 	 * @param DocumentInterface $document
 	 * @return PdfBuilderInterface
 	 */
-	public function createPdfBuilder(DocumentInterface $document);
+	public function createPdfBuilder(PdfDocumentInterface $document);
 }

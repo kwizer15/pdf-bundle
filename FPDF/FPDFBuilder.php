@@ -66,8 +66,11 @@ class FPDFBuilder implements PdfBuilderInterface
 		$fontStyle.= $style->isFontBold() ? 'B' : '';
 		$fontStyle.= $style->isFontUnderline() ? 'U' : '';
 		$this->pdf->SetFont($style->getFontName(), $fontStyle, $style->getFontSize());
-		list($r, $g, $b) = $style->getTextColorRGB();
-		$this->pdf->SetTextColor($r, $g, $b);
+		foreach (array('getTextColorRGB'=>'SetTextColor','getBorderColorRGB'=>'SetDrawColor','getBackgroundColorRGB'=>'SetFillColor') as $getter => $setter) 
+		{
+			list($r, $g, $b) = $style->$getter();
+			$this->pdf->$setter($r, $g, $b);
+		}
 		
 		return $style;
 	}

@@ -32,6 +32,10 @@ interface PdfStyleInterface
 	
 	public function getTextColorRGB();
 	
+	public function getBorderColorRGB();
+	
+	public function getBackgroundColorRGB();
+	
 	public function getBorder();
 	
 	public function getAlign();

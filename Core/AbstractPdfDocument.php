@@ -16,6 +16,8 @@ namespace Kwizer\PdfBundle\Core;
  */
 abstract class AbstractPdfDocument implements PdfDocumentInterface
 {	
+	protected $builder;
+	
 	/**
 	 * {@inheritdoc}
 	 */
