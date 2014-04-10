@@ -205,6 +205,9 @@ class FPDFStyle implements PdfStyleInterface
 	private static function _convertColorToRGB($color)
 	{
 		$color = str_replace('#','',$color);
+		$color = strtoupper($color);
+		if (!preg_match('#^[0-9A-F]{6}$#',$color))
+		    throw new \Exception('Color not valid');
 		$rgbhex = str_split($color,2);
 		foreach ($rgbhex as $u)
 		{
