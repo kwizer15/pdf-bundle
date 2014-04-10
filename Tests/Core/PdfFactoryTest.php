@@ -57,4 +57,28 @@ class PdfFactoryTest extends \PHPUnit_Framework_TestCase
 		$this->document->expects($this->once())->method('buildContent');
 		$this->assertInternalType('string', $this->factory->createPdf($this->document));
 	}
+	
+	public function testCreatePdfCallDocumentHeader()
+	{
+	    $this->document->expects($this->once())->method('buildHeader');
+	    $this->assertInternalType('string', $this->factory->createPdf($this->document));
+	}
+	
+	public function testCreatePdfCallDocumentFooter()
+	{
+	    $this->document->expects($this->once())->method('buildFooter');
+	    $this->assertInternalType('string', $this->factory->createPdf($this->document));
+	}
+	
+	public function testCreatePdfCallDocumentStylesheet()
+	{
+	    $this->document->expects($this->once())->method('setDefaultStylesheet');
+	    $this->assertInternalType('string', $this->factory->createPdf($this->document));
+	}
+	
+	public function testCreatePdfCallDocumentSetBuilder()
+	{
+	    $this->document->expects($this->once())->method('setBuilder');
+	    $this->assertInternalType('string', $this->factory->createPdf($this->document));
+	}
 }
