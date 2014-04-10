@@ -106,7 +106,7 @@ class FPDFStyle implements PdfStyleInterface
 	 */
 	public function getTextColorRGB()
 	{
-		return $this->_convertColorToRGB($this->textColor);
+		return self::_convertColorToRGB($this->textColor);
 	}
 	
 	/**
@@ -114,7 +114,7 @@ class FPDFStyle implements PdfStyleInterface
 	 */
 	public function getBorderColorRGB()
 	{
-		return $this->_convertColorToRGB($this->borderColor);
+		return self::_convertColorToRGB($this->borderColor);
 	}
 	
 	/**
@@ -122,7 +122,7 @@ class FPDFStyle implements PdfStyleInterface
 	 */
 	public function getBackgroundColorRGB()
 	{
-		return $this->_convertColorToRGB($this->backgroundColor);
+		return self::_convertColorToRGB($this->backgroundColor);
 	}
 	
 	/**
@@ -149,6 +149,10 @@ class FPDFStyle implements PdfStyleInterface
 		return $this->backgroundColor !== null;
 	}
 	
+	/**
+	 * Set options
+	 * @param array $options
+	 */
 	public function setOptionsFromArray($options = array())
 	{
 		foreach($options as $key=>$option)
@@ -193,14 +197,20 @@ class FPDFStyle implements PdfStyleInterface
 		}
 	}
 	
-	private function _convertColorToRGB($color)
+	/**
+	 * Convert Hex fomat to array
+	 * @param string $color
+	 * @return number
+	 */
+	private static function _convertColorToRGB($color)
 	{
 		$color = str_replace('#','',$color);
 		$rgbhex = str_split($color,2);
 		foreach ($rgbhex as $u)
 		{
-			$rgb[] =  hexdec($u);
+			$rgb[] = hexdec($u);
 		}
+		
 		return $rgb;
 	}
 }
