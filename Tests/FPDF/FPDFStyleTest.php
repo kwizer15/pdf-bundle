@@ -47,11 +47,12 @@ class FPDFStyleTest extends \PHPUnit_Framework_TestCase
 	}
 	
 	/**
-	 * @expectsException Exception
+	 * @expectedException Exception
 	 */
 	public function testGetTextColorRGBException()
 	{
 	    $this->style->setOptionsFromArray(array('text-color'=>'foo'));
+	    $this->style->getTextColorRGB();
 	}
 	
 
