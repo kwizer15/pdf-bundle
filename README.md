@@ -48,11 +48,11 @@ public function registerBundles()
 
 ``` php
 <?php
-// src/Your/Bundle/PdfDocument/MyPdf.php
+// src/Acme/DemoBundle/PdfDocument/MyPdf.php
 
-namespace Your\Bundle\PdfDocument;
+namespace Acme\DemoBundle\PdfDocument;
 
-class MyPdf extends Kwizer\PdfBundle\Core\AbstractPdfDocument
+class MyPdf extends \Kwizer\PdfBundle\Core\AbstractPdfDocument
 {
 	public function buildContent()
 	{
@@ -65,10 +65,11 @@ class MyPdf extends Kwizer\PdfBundle\Core\AbstractPdfDocument
 
 ``` php
 <?php
-// src/Your/Bundle/Controller/MyController.php
+// src/Acme/DemoBundle/Controller/MyController.php
 
 ...
 use Symfony\Component\HttpFoundation\Response;
+use Acme\DemoBundle\PdfDocument\MyDocument;
 
 class MyController extends Controller
 {
@@ -77,7 +78,7 @@ class MyController extends Controller
 		$response = new Response();
 		$response->headers->set('Content-Type', 'application/pdf');
 		$response->headers->set('Content-Disposition', 'inline; filename=my.pdf');
-		$pdf = $this->get('pdf.factory')->createPdf(new MyDocument());
+		$pdf = $this->get('kwizer.pdf.factory')->createPdf(new MyDocument());
 		$response->setContent($pdf);
 	
 		return $response;
