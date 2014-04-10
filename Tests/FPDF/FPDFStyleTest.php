@@ -33,7 +33,7 @@ class FPDFStyleTest extends \PHPUnit_Framework_TestCase
 	public function dataHexDec()
 	{
 		return array(
-				array('526312',array(82,99,18)),
+				array('4F6312',array(79,99,18)),
 		);
 	} 
 	
@@ -44,6 +44,14 @@ class FPDFStyleTest extends \PHPUnit_Framework_TestCase
 	{
 		$this->style->setOptionsFromArray(array('text-color'=>$hex));
 		$this->assertSame($dec, $this->style->getTextColorRGB());
+	}
+	
+	/**
+	 * @expectsException Exception
+	 */
+	public function testGetTextColorRGBException()
+	{
+	    $this->style->setOptionsFromArray(array('text-color'=>'foo'));
 	}
 	
 
