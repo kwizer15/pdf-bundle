@@ -9,20 +9,20 @@
 * file that was distributed with this source code.
 */
 
-namespace Kwizer\PdfBundle\Tests\FPDF;
+namespace Kwizer\PdfBundle\Tests\Core;
 
-use Kwizer\PdfBundle\FPDF\FPDFStyle;
+use Kwizer\PdfBundle\Core\PdfStyle;
 
 /**
  * @author Emmanuel Bernaszuk <emmanuel.bernaszuk@kw12er.com>
  */
-class FPDFStyleTest extends \PHPUnit_Framework_TestCase
+class PdfStyleTest extends \PHPUnit_Framework_TestCase
 {
 	private $style;
 	
 	public function setUp()
 	{
-		$this->style = new FPDFStyle();
+		$this->style = new PdfStyle();
 	}
 	
 	public function assertPreConditions()

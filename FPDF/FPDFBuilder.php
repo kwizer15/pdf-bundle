@@ -13,6 +13,7 @@ namespace Kwizer\PdfBundle\FPDF;
 
 use Kwizer\PdfBundle\Core\PdfInterface;
 use Kwizer\PdfBundle\Core\PdfBuilderInterface;
+use Kwizer\PdfBundle\Core\PdfStyle;
 
 /**
  * @author Emmanuel Bernaszuk <emmanuel.bernaszuk@kw12er.com>
@@ -95,7 +96,7 @@ class FPDFBuilder implements PdfBuilderInterface
 	 */
 	public static function createStyle($options = array())
 	{
-		return new FPDFStyle($options);
+		return new PdfStyle($options);
 	}
 	
 	/**

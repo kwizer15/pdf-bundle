@@ -9,14 +9,14 @@
 * file that was distributed with this source code.
 */
 
-namespace Kwizer\PdfBundle\FPDF;
+namespace Kwizer\PdfBundle\Core;
 
 use Kwizer\PdfBundle\Core\PdfStyleInterface;
 
 /**
  * @author Emmanuel Bernaszuk <emmanuel.bernaszuk@kw12er.com>
  */
-class FPDFStyle implements PdfStyleInterface
+class PdfStyle implements PdfStyleInterface
 {
 	private $font = 'courier';
 	
