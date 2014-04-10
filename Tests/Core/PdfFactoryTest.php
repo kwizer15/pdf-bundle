@@ -21,6 +21,9 @@ class PdfFactoryTest extends \PHPUnit_Framework_TestCase
 	
 	private $factory;
 	
+	/**
+	 * {@inheritdoc}
+	 */
 	public function setUp()
 	{
 		$this->document = $this->getMock('Kwizer\PdfBundle\Core\PdfDocumentInterface');
