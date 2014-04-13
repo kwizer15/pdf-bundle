@@ -8,7 +8,7 @@
     </parameters>
     
     <services>
-        <service id="kwizer.pdf.factory" class="Kwizer\PdfBundle\PdfFactory">
+        <service id="kwizer.pdf.factory" class="Kwizer\PdfBundle\Core\PdfFactory">
             <argument>%kwizer.pdf.library%</argument>
         </service>
     </services>
