@@ -45,10 +45,14 @@ class PdfFactory implements PdfFactoryInterface
 	{
 		$builder = new $this->builderClass(new $this->bridgeClass($document));
 		$stylesheet = $document->setDefaultStylesheet();
-		foreach ($stylesheet as $name => $style)
+		if (is_array($stylesheet))
 		{
-			$builder->addStyle($name,$style);
+			foreach ($stylesheet as $name => $style)
+			{
+				$builder->addStyle($name,$style);
+			}
 		}
+		
 		$document->setBuilder($builder);
 		$document->buildContent();
 		
