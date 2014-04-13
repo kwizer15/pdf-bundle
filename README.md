@@ -52,7 +52,7 @@ public function registerBundles()
 
 namespace Acme\DemoBundle\PdfDocument;
 
-class MyPdf extends \Kwizer\PdfBundle\Core\AbstractPdfDocument
+class MyDocument extends \Kwizer\PdfBundle\Core\AbstractPdfDocument
 {
 	public function buildContent()
 	{
