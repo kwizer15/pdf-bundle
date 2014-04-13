@@ -44,7 +44,11 @@ class PdfFactory implements PdfFactoryInterface
 	public function createPdfBuilder(PdfDocumentInterface $document)
 	{
 		$builder = new $this->builderClass(new $this->bridgeClass($document));
-		$document->setDefaultStylesheet();
+		$stylesheet = $document->setDefaultStylesheet();
+		foreach ($stylesheet as $name => $style)
+		{
+			$builder->addStyle($name,$style);
+		}
 		$document->setBuilder($builder);
 		$document->buildContent();
 		
