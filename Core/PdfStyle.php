@@ -32,7 +32,7 @@ class PdfStyle implements PdfStyleInterface
 	
 	private $textColor = '000000';
 	
-	private $backgroundColor = '000000';
+	private $backgroundColor = 'FFFFFF';
 	
 	private $align = 'left';
 	
